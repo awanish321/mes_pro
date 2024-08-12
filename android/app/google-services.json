@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "668777250322",
+    "firebase_url": "https://mes-pro-796e2-default-rtdb.firebaseio.com",
+    "project_id": "mes-pro-796e2",
+    "storage_bucket": "mes-pro-796e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668777250322:android:723aaed7c234505e11e2cb",
+        "android_client_info": {
+          "package_name": "com.example.mes_pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668777250322-a4ub92ai5ti5lppenrr7pvqmi8b7gsu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDT0zR2TYERqKVhvB20lpCvgtLOjzJgY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668777250322-a4ub92ai5ti5lppenrr7pvqmi8b7gsu3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "668777250322-7lquma82g4uc0h1f4vpr6o72g6dnkp33.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
