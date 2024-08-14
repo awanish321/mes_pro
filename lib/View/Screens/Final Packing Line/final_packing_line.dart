@@ -1,14 +1,16 @@
+//
 // import 'package:flutter/material.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/asset_prepack.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/chemical_welding.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/etbc_fixing.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/finished_goods_to_store.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/inner_box_packing.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/kiosk.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/meter_sealing.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
-// import 'package:mes/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/asset_prepack.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/chemical_welding.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/etbc_fixing.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/finished_goods_to_store.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/inner_box_packing.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/kiosk.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_sealing.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
+// import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
+//
 //
 // class FinalPackingLineScreen extends StatefulWidget {
 //   const FinalPackingLineScreen({super.key});
@@ -46,6 +48,17 @@
 //
 //   @override
 //   Widget build(BuildContext context) {
+//     // Determine the number of columns based on the screen width
+//     int crossAxisCount;
+//     double screenWidth = MediaQuery.of(context).size.width;
+//     if (screenWidth >= 1200) {
+//       crossAxisCount = 6;
+//     } else if (screenWidth >= 800) {
+//       crossAxisCount = 4;
+//     } else {
+//       crossAxisCount = 2;
+//     }
+//
 //     return Scaffold(
 //       appBar: AppBar(
 //         elevation: 0,
@@ -56,8 +69,8 @@
 //         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
 //         child: GridView.builder(
 //           physics: const BouncingScrollPhysics(),
-//           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-//             crossAxisCount: 2,
+//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: crossAxisCount,
 //             crossAxisSpacing: 8.0,
 //             mainAxisSpacing: 8.0,
 //             childAspectRatio: 1,
@@ -84,17 +97,21 @@
 //                   child: Column(
 //                     mainAxisAlignment: MainAxisAlignment.center,
 //                     children: [
-//                       Image.asset(
-//                         images[index],
-//                         width: 40,
-//                         height: 40,
-//                         fit: BoxFit.contain,
+//                       Expanded(
+//                         child: Image.asset(
+//                           images[index],
+//                           width: 40,
+//                           height: 40,
+//                           fit: BoxFit.contain,
+//                         ),
 //                       ),
 //                       const SizedBox(height: 10),
-//                       Text(
-//                         items[index],
-//                         textAlign: TextAlign.center,
-//                         style: const TextStyle(fontSize: 15, color: Colors.white),
+//                       Expanded(
+//                         child: Text(
+//                           items[index],
+//                           textAlign: TextAlign.center,
+//                           style: const TextStyle(fontSize: 15, color: Colors.white),
+//                         ),
 //                       ),
 //                     ],
 //                   ),
@@ -137,7 +154,6 @@
 
 
 
-
 import 'package:flutter/material.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/asset_prepack.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/chemical_welding.dart';
@@ -149,7 +165,6 @@ import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_markin
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_sealing.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
-
 
 class FinalPackingLineScreen extends StatefulWidget {
   const FinalPackingLineScreen({super.key});
@@ -185,6 +200,9 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
     "assets/icons/store.png",
   ];
 
+  // Track hovered index
+  int? hoveredIndex;
+
   @override
   Widget build(BuildContext context) {
     // Determine the number of columns based on the screen width
@@ -195,7 +213,7 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
     } else if (screenWidth >= 800) {
       crossAxisCount = 4;
     } else {
-      crossAxisCount = 2;
+      crossAxisCount = 3;
     }
 
     return Scaffold(
@@ -216,43 +234,72 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
           ),
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => getPageForItem(items[index]),
-                  ),
-                );
+            return MouseRegion(
+              onEnter: (_) {
+                setState(() {
+                  hoveredIndex = index;
+                });
               },
-              child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.cyan,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Image.asset(
-                          images[index],
-                          width: 40,
-                          height: 40,
-                          fit: BoxFit.contain,
-                        ),
+              onExit: (_) {
+                setState(() {
+                  hoveredIndex = null;
+                });
+              },
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => getPageForItem(items[index]),
+                    ),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: hoveredIndex == index
+                        ? Colors.cyan.withOpacity(0.8) // Darker color on hover
+                        : Colors.cyan,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: hoveredIndex == index
+                        ? [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 15,
+                        offset: Offset(0, 5), // Light shadow below for inset effect
                       ),
-                      const SizedBox(height: 10),
-                      Expanded(
-                        child: Text(
-                          items[index],
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 15, color: Colors.white),
-                        ),
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.6),
+                        blurRadius: 15,
+                        offset: Offset(0, -5), // Dark shadow above
                       ),
-                    ],
+                    ]
+                        : [],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            images[index],
+                            width: 40,
+                            height: 40,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Expanded(
+                          child: Text(
+                            items[index],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 15, color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
