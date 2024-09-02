@@ -10,14 +10,14 @@ import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_sealin
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
 
-class FinalPackingLineScreen extends StatefulWidget {
-  const FinalPackingLineScreen({super.key});
+class FinishedGoods extends StatefulWidget {
+  const FinishedGoods({super.key});
 
   @override
-  State<FinalPackingLineScreen> createState() => _FinalPackingLineScreenState();
+  State<FinishedGoods> createState() => _FinishedGoodsState();
 }
 
-class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
+class _FinishedGoodsState extends State<FinishedGoods> {
   final List<String> items = [
     "Meter Visual Inspection",
     "Laser Marking",
@@ -63,8 +63,8 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.cyan,
-        title: const Text("Final Packing Line"),
+        backgroundColor: Colors.indigoAccent,
+        title: const Text("Finished Goods"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -103,8 +103,8 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: hoveredIndex == index
-                        ? Colors.cyan.withOpacity(0.8) // Darker color on hover
-                        : Colors.cyan,
+                        ? Colors.indigoAccent.withOpacity(0.8) // Darker color on hover
+                        : Colors.indigoAccent,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: hoveredIndex == index
                         ? [
@@ -177,7 +177,7 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
       case "Finished Goods To Store":
         return const FinishedGoodsToStore();
       default:
-        return const FinalPackingLineScreen();
+        return const FinishedGoods();
     }
   }
 }

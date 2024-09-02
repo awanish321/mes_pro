@@ -156,6 +156,12 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:mes_pro/View/Screens/Finished%20Goods/finished_goods.dart';
+import 'package:mes_pro/View/Screens/Purchase%20Order/purchase_order.dart';
+import 'package:mes_pro/View/Screens/Repairs/repairs.dart';
+import 'package:mes_pro/View/Screens/Sales%20Order/sales_order.dart';
+import 'package:mes_pro/View/Screens/Scrap/scrap.dart';
+import 'package:mes_pro/View/Screens/Work%20In%20Progress/work_in_progress.dart';
 import 'Bills of Materials/bills_of_materials.dart';
 import 'Final Packing Line/final_packing_line.dart';
 import 'Kanban/kanban.dart';
@@ -184,6 +190,12 @@ class _HomeScreenState extends State<HomeScreen> {
     "THT Line - 2",
     "Kanban",
     "Final Packing Line",
+    "Sales Order",
+    "Purchase Order",
+    "Finished Goods",
+    "WIP",
+    "Repairs",
+    "Scrap"
   ];
 
   final List<String> images = [
@@ -196,6 +208,12 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/icons/pcb-board.png",
     "assets/icons/kanban.png",
     "assets/icons/material-management.png",
+    "assets/icons/sales-order.png",
+    "assets/icons/purchase-order.png",
+    "assets/icons/finished-goods.png",
+    "assets/icons/work-in-progress.png",
+    "assets/icons/technician.png",
+    "assets/icons/waste.png"
   ];
 
   final List<Color> colors = [
@@ -208,16 +226,21 @@ class _HomeScreenState extends State<HomeScreen> {
     Colors.amber,
     Colors.pink,
     Colors.cyan,
+    Colors.blueGrey,
+    Colors.greenAccent,
+    Colors.indigoAccent,
+    Colors.brown.shade500,
+    Colors.lime,
+    Colors.green
+
   ];
 
-  // Keep track of hovered index
   int? hoveredIndex;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isDesktop = screenWidth > 800;
-
     int crossAxisCount = isDesktop ? 5 : 3;
     double childAspectRatio = isDesktop ? 1.5 : 1;
 
@@ -271,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: hoveredIndex == index
                           ? [
-                        BoxShadow(
+                        const BoxShadow(
                           color: Colors.black26,
                           blurRadius: 15,
                           offset: Offset(0, -5), // Shift shadow upwards
@@ -279,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         BoxShadow(
                           color: Colors.white.withOpacity(0.4),
                           blurRadius: 15,
-                          offset: Offset(0, 5), // Light shadow for inset effect
+                          offset: const Offset(0, 5), // Light shadow for inset effect
                         ),
                       ]
                           : [],
@@ -334,6 +357,18 @@ class _HomeScreenState extends State<HomeScreen> {
         return const KanbanScreen();
       case "Final Packing Line":
         return const FinalPackingLineScreen();
+      case "Sales Order":
+        return const SalesOrder();
+      case "Purchase Order":
+        return const PurchaseOrder();
+      case "Finished Goods":
+        return const FinishedGoods();
+      case "WIP":
+        return const WIP();
+      case "Repairs":
+        return const Repairs();
+      case "Scrap":
+        return const Scrap();
       default:
         return const HomeScreen();
     }

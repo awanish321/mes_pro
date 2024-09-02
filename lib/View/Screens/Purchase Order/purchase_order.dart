@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/2d_aoi.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/pcb_unload.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/smd_pick_place.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/solder_paste_reflow.dart';
+import 'package:mes_pro/View/Screens/Purchase%20Order/widgets/new_order_widget.dart';
+import 'package:mes_pro/View/Screens/Purchase%20Order/widgets/pending_order_import_widget.dart';
+import 'package:mes_pro/View/Screens/Purchase%20Order/widgets/pending_order_local_widget.dart';
+import 'package:mes_pro/View/Screens/Sales%20Order/widgets/order_in_production_widget.dart';
+import 'package:mes_pro/View/Screens/Sales%20Order/widgets/pending_orders_widgets.dart';
+import 'package:mes_pro/View/Screens/Sales%20Order/widgets/reschedule_orders_widget.dart';
 
-class SMTLineStage2Screen extends StatefulWidget {
-  const SMTLineStage2Screen({super.key});
+class PurchaseOrder extends StatefulWidget {
+  const PurchaseOrder({super.key});
 
   @override
-  State<SMTLineStage2Screen> createState() => _SMTLineStage2ScreenState();
+  State<PurchaseOrder> createState() => _PurchaseOrderState();
 }
 
-class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
+class _PurchaseOrderState extends State<PurchaseOrder> {
   final List<String> items = [
-    "SMD Pick & Place",
-    "Solder Paste Reflow",
-    "2D AOI",
-    "PCB Unload",
+    "New Order",
+    "Pending Order Local",
+    "Pending Order Import",
   ];
 
   final List<String> images = [
-    "assets/chip.png",
-    "assets/soldering.png",
-    "assets/file.png",
-    "assets/pcb-board.png",
+    "assets/icons/new order.png",
+    "assets/icons/pendingeorder.png",
+    "assets/icons/pendingeorder.png",
   ];
 
-  // Track hovered index
   int? hoveredIndex;
 
   @override
@@ -35,21 +34,21 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
     int crossAxisCount;
     double screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth >= 1200) {
-      crossAxisCount = 6; // Desktop size
+      crossAxisCount = 6;
     } else if (screenWidth >= 800) {
-      crossAxisCount = 4; // Tablet size
+      crossAxisCount = 4;
     } else {
-      crossAxisCount = 3; // Mobile size
+      crossAxisCount = 3;
     }
 
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.purple,
-        title: const Text("SMT Line Stage - 2"),
+        backgroundColor: Colors.greenAccent,
+        title: const Text("Purchase Order"),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         child: GridView.builder(
           physics: const BouncingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -84,7 +83,7 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
                   duration: const Duration(milliseconds: 200),
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
-                    color: Colors.purple,
+                    color: Colors.greenAccent,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: hoveredIndex == index
                         ? [
@@ -96,26 +95,28 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
                     ]
                         : [],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            images[index],
-                            fit: BoxFit.contain,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              images[index],
+                              fit: BoxFit.contain,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        Expanded(
-                          child: Text(
-                            items[index],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 15, color: Colors.white),
+                          const SizedBox(height: 10),
+                          Expanded(
+                            child: Text(
+                              items[index],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontSize: 15, color: Colors.white),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -129,16 +130,14 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
 
   Widget getPageForItem(String item) {
     switch (item) {
-      case "SMD Pick & Place":
-        return const SmdPickPlaceScreen();
-      case "Solder Paste Reflow":
-        return const SolderPasteReflowScreen();
-      case "2D AOI":
-        return const AoiScreen();
-      case "PCB Unload":
-        return const PcbUnloadScreen();
+      case "New Order":
+        return const NewOrderWidget();
+      case "Pending Order Local":
+        return const PendingOrderLocalWidget();
+      case "Pending Order Import":
+        return const PendingOrderImportWidget();
       default:
-        return const SMTLineStage2Screen();
+        return const PurchaseOrder();
     }
   }
 }

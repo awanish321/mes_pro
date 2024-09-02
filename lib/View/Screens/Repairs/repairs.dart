@@ -10,18 +10,18 @@ import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_sealin
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
 
-class FinalPackingLineScreen extends StatefulWidget {
-  const FinalPackingLineScreen({super.key});
+class Repairs extends StatefulWidget {
+  const Repairs({super.key});
 
   @override
-  State<FinalPackingLineScreen> createState() => _FinalPackingLineScreenState();
+  State<Repairs> createState() => _RepairsState();
 }
 
-class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
+class _RepairsState extends State<Repairs> {
   final List<String> items = [
-    "Meter Visual Inspection",
-    "Laser Marking",
-    "KIOSK",
+    "Belly Meter",
+    "R10 NIC",
+    "R26 Main Board",
     "Asset Prepack",
     "Chemical Welding",
     "ETBC Fixing",
@@ -63,8 +63,8 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.cyan,
-        title: const Text("Final Packing Line"),
+        backgroundColor: Colors.lime,
+        title: const Text("Repairs"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -103,8 +103,8 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: hoveredIndex == index
-                        ? Colors.cyan.withOpacity(0.8) // Darker color on hover
-                        : Colors.cyan,
+                        ? Colors.lime.withOpacity(0.8) // Darker color on hover
+                        : Colors.lime,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: hoveredIndex == index
                         ? [
@@ -174,10 +174,8 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
         return const InnerBoxPacking();
       case "Outer Box Packing":
         return const OuterBoxPacking();
-      case "Finished Goods To Store":
-        return const FinishedGoodsToStore();
       default:
-        return const FinalPackingLineScreen();
+        return const Repairs();
     }
   }
 }
