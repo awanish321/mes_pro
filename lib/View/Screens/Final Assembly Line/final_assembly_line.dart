@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/accuracy_and_caliberation.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/ct_assembly.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/external_battery_assembly.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/hv_ir_ft_testing.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/main_pcb_assembly.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/relay_assembly.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/shunt_assembly.dart';
-import 'package:mes_pro/View/Screens/Kanban/widgets/terminal_block_assembly.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/accuracy_and_caliberation.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/ct_assembly.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/external_battery_assembly.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/hv_ir_ft_testing.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/main_pcb_assembly.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/relay_assembly.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/shunt_assembly.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/terminal_block_assembly.dart';
 
-class KanbanScreen extends StatefulWidget {
-  const KanbanScreen({super.key});
+
+class FinalAssemblyLine extends StatefulWidget {
+  const FinalAssemblyLine({super.key});
 
   @override
-  State<KanbanScreen> createState() => _KanbanScreenState();
+  State<FinalAssemblyLine> createState() => _FinalAssemblyLineState();
 }
 
-class _KanbanScreenState extends State<KanbanScreen> {
+class _FinalAssemblyLineState extends State<FinalAssemblyLine> {
   final List<String> items = [
     "Terminal Block Assembly",
     "Relay Assembly",
@@ -41,6 +42,16 @@ class _KanbanScreenState extends State<KanbanScreen> {
   // Track hovered index
   int? hoveredIndex;
 
+  final Map<String, String> tableValues = {
+    "Total PCB Load": "100",
+    "Process Complete": "48",
+    "In Process": "52",
+    "Job ID": "105",
+    "Attendant ID": "12 TO 14 Digit",
+    "Time Cycle": "25 Sec",
+  };
+
+
   @override
   Widget build(BuildContext context) {
     // Determine the number of columns based on the screen width
@@ -58,7 +69,7 @@ class _KanbanScreenState extends State<KanbanScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.pink,
-        title: const Text("Kanban"),
+        title: const Text("Final Assembly Line"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
@@ -147,21 +158,21 @@ class _KanbanScreenState extends State<KanbanScreen> {
       case "Terminal Block Assembly":
         return const TerminalBlockAssembly();
       case "Relay Assembly":
-        return const RelayAssembly();
+        return RelayAssembly(tableValues: tableValues,);
       case "CT Assembly":
-        return const CtAssembly();
+        return CtAssembly(tableValues: tableValues);
       case "Shunt Assembly":
-        return const ShuntAssembly();
+        return ShuntAssembly( tableValues: tableValues,);
       case "Main PCB Assembly":
-        return const MainPcbAssembly();
+        return MainPcbAssembly(tableValues: tableValues);
       case "External Battery Assembly":
-        return const ExternalBatteryAssembly();
+        return ExternalBatteryAssembly(tableValues: tableValues,);
       case "HV, IR, FT Testing":
-        return const HvIrFtTesting();
+        return HvIrFtTesting(tableValues: tableValues,);
       case "Accuracy & Calibration":
-        return const AccuracyAndCalibration();
+        return AccuracyAndCalibration(tableValues: tableValues,);
       default:
-        return const KanbanScreen();
+        return const FinalAssemblyLine();
     }
   }
 }

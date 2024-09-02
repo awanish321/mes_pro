@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'Bills of Materials/bills_of_materials.dart';
 // import 'Final Packing Line/final_packing_line.dart';
-// import 'Kanban/kanban.dart';
+// import 'Kanban/final_assembly_line.dart';
 // import 'Material Inward/material_inward.dart';
 // import 'SMT LINE STAGE 1/smt_line_stage_1.dart';
 // import 'SMT LINE STAGE 2/smt_line_stage_2.dart';
@@ -156,6 +156,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/final_assembly_line.dart';
 import 'package:mes_pro/View/Screens/Finished%20Goods/finished_goods.dart';
 import 'package:mes_pro/View/Screens/Purchase%20Order/purchase_order.dart';
 import 'package:mes_pro/View/Screens/Repairs/repairs.dart';
@@ -164,7 +165,6 @@ import 'package:mes_pro/View/Screens/Scrap/scrap.dart';
 import 'package:mes_pro/View/Screens/Work%20In%20Progress/work_in_progress.dart';
 import 'Bills of Materials/bills_of_materials.dart';
 import 'Final Packing Line/final_packing_line.dart';
-import 'Kanban/kanban.dart';
 import 'Material Inward/material_inward.dart';
 import 'SMT LINE STAGE 1/smt_line_stage_1.dart';
 import 'SMT LINE STAGE 2/smt_line_stage_2.dart';
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
     "SMT Line Stage - 2",
     "THT Line - 1",
     "THT Line - 2",
-    "Kanban",
+    "Final Assembly Line",
     "Final Packing Line",
     "Sales Order",
     "Purchase Order",
@@ -353,8 +353,8 @@ class _HomeScreenState extends State<HomeScreen> {
         return const THTLine1();
       case "THT Line - 2":
         return const THTLine2();
-      case "Kanban":
-        return const KanbanScreen();
+      case "Final Assembly Line":
+        return const FinalAssemblyLine();
       case "Final Packing Line":
         return const FinalPackingLineScreen();
       case "Sales Order":
