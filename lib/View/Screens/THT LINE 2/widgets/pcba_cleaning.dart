@@ -15,7 +15,10 @@ class _PCBACleaningState extends State<PCBACleaning> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.amber,
-        title: const Text("PCBA Cleaning"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("PCBA Cleaning", style: TextStyle(color: Colors.black),),
       ),
     );
   }

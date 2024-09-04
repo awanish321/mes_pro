@@ -139,7 +139,10 @@ class _TerminalBlockAssemblyState extends State<TerminalBlockAssembly> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.pink,
-        title: const Text('Terminal Block Assembly'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text('Terminal Block Assembly', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [

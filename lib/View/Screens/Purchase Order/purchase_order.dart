@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mes_pro/View/Screens/Purchase%20Order/widgets/new_order_widget.dart';
 import 'package:mes_pro/View/Screens/Purchase%20Order/widgets/pending_order_import_widget.dart';
 import 'package:mes_pro/View/Screens/Purchase%20Order/widgets/pending_order_local_widget.dart';
-import 'package:mes_pro/View/Screens/Sales%20Order/widgets/order_in_production_widget.dart';
-import 'package:mes_pro/View/Screens/Sales%20Order/widgets/pending_orders_widgets.dart';
-import 'package:mes_pro/View/Screens/Sales%20Order/widgets/reschedule_orders_widget.dart';
 
 class PurchaseOrder extends StatefulWidget {
   const PurchaseOrder({super.key});
@@ -45,7 +42,10 @@ class _PurchaseOrderState extends State<PurchaseOrder> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.greenAccent,
-        title: const Text("Purchase Order"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Purchase Order", style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -105,15 +105,15 @@ class _PurchaseOrderState extends State<PurchaseOrder> {
                             child: Image.asset(
                               images[index],
                               fit: BoxFit.contain,
+                              height: 50,
+                              width: 50,
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Expanded(
-                            child: Text(
-                              items[index],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 15, color: Colors.white),
-                            ),
+                          Text(
+                            items[index],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(),
                           ),
                         ],
                       ),

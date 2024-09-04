@@ -111,7 +111,10 @@ class _HvIrFtTestingState extends State<HvIrFtTesting> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.pink,
-        title: const Text('HV, IR, FT Testing'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text('HV, IR, FT Testing', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [

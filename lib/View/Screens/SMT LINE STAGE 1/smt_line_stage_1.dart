@@ -46,7 +46,10 @@ class _SMTLineStage1ScreenState extends State<SMTLineStage1Screen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.orange,
-        title: const Text("SMT Line Stage - 1"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("SMT Line Stage - 1", style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -106,15 +109,15 @@ class _SMTLineStage1ScreenState extends State<SMTLineStage1Screen> {
                             child: Image.asset(
                               images[index],
                               fit: BoxFit.contain,
+                              height: 50,
+                              width: 50,
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Expanded(
-                            child: Text(
-                              items[index],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 15, color: Colors.white),
-                            ),
+                          Text(
+                            items[index],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(),
                           ),
                         ],
                       ),

@@ -14,7 +14,10 @@ class _KIOSKState extends State<KIOSK> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("KIOSK"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color:Colors.black)),
+        title: const Text("KIOSK", style: TextStyle(color: Colors.black),),
       ),
     );
   }

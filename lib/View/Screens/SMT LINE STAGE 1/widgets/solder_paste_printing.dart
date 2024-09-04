@@ -14,7 +14,10 @@ class _SolderPastePrintingScreenState extends State<SolderPastePrintingScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.orange,
-        title: const Text('Solder Paste Printing EbyDEK'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text('Solder Paste Printing EbyDEK', style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

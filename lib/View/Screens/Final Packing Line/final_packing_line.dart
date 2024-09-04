@@ -64,7 +64,10 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Final Packing Line"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Final Packing Line", style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -129,18 +132,16 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
                         Expanded(
                           child: Image.asset(
                             images[index],
-                            width: 40,
-                            height: 40,
+                            width: 50,
+                            height: 50,
                             fit: BoxFit.contain,
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Expanded(
-                          child: Text(
-                            items[index],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 15, color: Colors.white),
-                          ),
+                        Text(
+                          items[index],
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(),
                         ),
                       ],
                     ),

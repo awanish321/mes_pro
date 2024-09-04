@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/asset_prepack.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/chemical_welding.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/etbc_fixing.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/finished_goods_to_store.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/inner_box_packing.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/kiosk.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
@@ -63,8 +62,11 @@ class _RepairsState extends State<Repairs> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
         backgroundColor: Colors.lime,
-        title: const Text("Repairs"),
+        title: const Text("Repairs", style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -129,18 +131,16 @@ class _RepairsState extends State<Repairs> {
                         Expanded(
                           child: Image.asset(
                             images[index],
-                            width: 40,
-                            height: 40,
+                            width: 50,
+                            height: 50,
                             fit: BoxFit.contain,
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Expanded(
-                          child: Text(
-                            items[index],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 15, color: Colors.white),
-                          ),
+                        Text(
+                          items[index],
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(),
                         ),
                       ],
                     ),

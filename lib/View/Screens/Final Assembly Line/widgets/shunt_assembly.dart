@@ -112,7 +112,10 @@ class _ShuntAssemblyState extends State<ShuntAssembly> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.pink,
-        title: const Text('Shunt Assembly'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text('Shunt Assembly', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [

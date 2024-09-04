@@ -15,7 +15,10 @@ class _OFMInsertionFusionScreenState extends State<OFMInsertionFusionScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.teal,
-        title: const Text("OFM Insertion Fusion"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("OFM Insertion Fusion", style: TextStyle(color: Colors.black),),
       ),
     );
   }

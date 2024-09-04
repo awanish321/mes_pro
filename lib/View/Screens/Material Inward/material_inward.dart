@@ -15,7 +15,10 @@ class _MaterialInwardScreenState extends State<MaterialInwardScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.red,
-        title: const Text("Material Inward"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Material Inward", style: TextStyle(color: Colors.black),),
       ),
       body: const Center(
         child: Text("Material Inward"),

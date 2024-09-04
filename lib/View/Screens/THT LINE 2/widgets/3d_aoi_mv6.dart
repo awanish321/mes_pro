@@ -15,7 +15,10 @@ class _AOIMV6ScreenState extends State<AOIMV6Screen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.amber,
-        title: const Text("AOIMV6"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("AOIMV6", style: TextStyle(color: Colors.black),),
       ),
     );
   }

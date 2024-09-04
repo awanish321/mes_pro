@@ -14,7 +14,10 @@ class _UflexSpecialPartsState extends State<UflexSpecialParts> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.teal,
-        title: const Text("UFLEX Special Parts"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("UFLEX Special Parts", style: TextStyle(color: Colors.black),),
       ),
     );
   }

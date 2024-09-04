@@ -14,7 +14,10 @@ class _PendingOrdersWidgetsState extends State<PendingOrdersWidgets> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blueGrey,
-        title: const Text("Pending Orders"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Pending Orders", style: TextStyle(color: Colors.black),),
       ),
     );
   }

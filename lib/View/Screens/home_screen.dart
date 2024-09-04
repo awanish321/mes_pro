@@ -322,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             items[index],
                             textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 15, color: Colors.white),
+                            style: const TextStyle(),
                           ),
                         ],
                       ),

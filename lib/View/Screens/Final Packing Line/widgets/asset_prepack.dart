@@ -14,7 +14,10 @@ class _AssetPrepackState extends State<AssetPrepack> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Asset Prepack"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Asset Prepack", style: TextStyle(color: Colors.black),),
       ),
     );
   }

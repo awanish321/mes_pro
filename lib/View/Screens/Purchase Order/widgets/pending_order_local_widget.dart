@@ -14,7 +14,10 @@ class _PendingOrderLocalWidgetState extends State<PendingOrderLocalWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.greenAccent,
-        title: const Text("Pending Order Local"),
+        leading: IconButton(onPressed : (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Pending Order Local", style: TextStyle(color: Colors.black),),
       ),
     );
   }

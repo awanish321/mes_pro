@@ -14,7 +14,10 @@ class _NewOrdersWidgetsState extends State<NewOrdersWidgets> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blueGrey,
-        title: const Text("New Orders"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("New Orders", style: TextStyle(color: Colors.black),),
       ),
     );
   }

@@ -159,12 +159,15 @@ class _SubAssemblySetScreenState extends State<SubAssemblySetScreen> {
         ),
         onPressed: addNewFiles,
         backgroundColor: Colors.blue,
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.black,),
       ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blue,
-        title: const Text("Sub Assembly Set"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Sub Assembly Set", style: TextStyle(color: Colors.black),),
       ),
       body: _filePaths.isEmpty
           ? const Center(child: CircularProgressIndicator())
@@ -204,7 +207,7 @@ class _SubAssemblySetScreenState extends State<SubAssemblySetScreen> {
                       Expanded(
                         child: Icon(
                           Icons.insert_drive_file,
-                          color: Colors.white,
+                          // color: Colors.white,
                           size: (screenWidth > 600) ? 40 : 20,
                         ),
                       ),
@@ -214,7 +217,6 @@ class _SubAssemblySetScreenState extends State<SubAssemblySetScreen> {
                           _fileNames[index],
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                           overflow: TextOverflow.ellipsis,

@@ -14,7 +14,10 @@ class _FinishedGoodsToStoreState extends State<FinishedGoodsToStore> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Finished Goods To Store"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Finished Goods To Store", style: TextStyle(color: Colors.black),),
       ),
     );
   }

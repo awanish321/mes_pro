@@ -15,7 +15,12 @@ class _MeterVisualInspectionState extends State<MeterVisualInspection> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Meter Visual Inspection"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+        icon: const Icon(Icons.arrow_back, color: Colors.black,),
+        ),
+        title: const Text("Meter Visual Inspection", style: TextStyle(color: Colors.black),),
       ),
     );
   }

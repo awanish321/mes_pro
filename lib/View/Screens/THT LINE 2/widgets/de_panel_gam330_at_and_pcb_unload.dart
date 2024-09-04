@@ -16,7 +16,10 @@ class _DePanelGam330AtAndPcbUnloadScreenState extends State<DePanelGam330AtAndPc
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.amber,
-        title: const Text("De Panel GAM330 AT & PCB Unload"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("De Panel GAM330 AT & PCB Unload", style: TextStyle(color: Colors.black),),
       ),
     );
   }

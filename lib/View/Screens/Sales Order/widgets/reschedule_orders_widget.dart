@@ -14,7 +14,10 @@ class _RescheduleOrdersWidgetState extends State<RescheduleOrdersWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blueGrey,
-        title: const Text("Reschedule Orders"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Reschedule Orders", style: TextStyle(color: Colors.black),),
       ),
     );
   }

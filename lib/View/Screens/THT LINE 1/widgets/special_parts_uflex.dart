@@ -15,7 +15,10 @@ class _SpecialPartsUflexScreenState extends State<SpecialPartsUflexScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.teal,
-        title: const Text("Special Parts UFLEX"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Special Parts UFLEX", style: TextStyle(color: Colors.black),),
       ),
     );
   }

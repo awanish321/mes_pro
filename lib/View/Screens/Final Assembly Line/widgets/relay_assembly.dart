@@ -116,7 +116,10 @@ class _RelayAssemblyState extends State<RelayAssembly> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.pink,
-        title: const Text('Relay Assembly'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text('Relay Assembly', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [

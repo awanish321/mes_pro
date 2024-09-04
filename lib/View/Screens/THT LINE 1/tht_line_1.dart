@@ -49,7 +49,10 @@ class _THTLine1State extends State<THTLine1> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.teal,
-        title: const Text("THT Line - 1"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("THT Line - 1", style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
@@ -108,15 +111,15 @@ class _THTLine1State extends State<THTLine1> {
                           child: Image.asset(
                             images[index],
                             fit: BoxFit.contain,
+                            height: 50,
+                            width: 50,
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Expanded(
-                          child: Text(
-                            items[index],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 15, color: Colors.white),
-                          ),
+                        Text(
+                          items[index],
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(),
                         ),
                       ],
                     ),

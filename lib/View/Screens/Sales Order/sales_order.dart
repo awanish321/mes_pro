@@ -45,7 +45,10 @@ class _SalesOrderState extends State<SalesOrder> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blueGrey,
-        title: const Text("Sales Order"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Sales Order", style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
@@ -105,15 +108,15 @@ class _SalesOrderState extends State<SalesOrder> {
                             child: Image.asset(
                               images[index],
                               fit: BoxFit.contain,
+                              height: 50,
+                              width: 50,
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Expanded(
-                            child: Text(
-                              items[index],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 15, color: Colors.white),
-                            ),
+                          Text(
+                            items[index],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(),
                           ),
                         ],
                       ),

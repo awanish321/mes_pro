@@ -14,7 +14,10 @@ class _LaserMarkingScreenState extends State<LaserMarkingScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.orange,
-        title: const Text('Laser Marking'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text('Laser Marking', style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

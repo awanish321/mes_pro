@@ -13,8 +13,11 @@ class _ScrapState extends State<Scrap> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
         backgroundColor: Colors.green,
-        title: const Text("Scrap"),
+        title: const Text("Scrap", style: TextStyle(color: Colors.black),),
       ),
     );
   }

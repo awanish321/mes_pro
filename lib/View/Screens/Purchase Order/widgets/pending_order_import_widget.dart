@@ -14,7 +14,10 @@ class _PendingOrderImportWidgetState extends State<PendingOrderImportWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.greenAccent,
-        title: const Text("Pending Order Import"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Pending Order Import", style: TextStyle(color: Colors.black),),
       ),
     );
   }

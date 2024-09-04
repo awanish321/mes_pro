@@ -14,7 +14,10 @@ class _ETBCFixingState extends State<ETBCFixing> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("ETBC Fixing"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("ETBC Fixing", style: TextStyle(color: Colors.black),),
       ),
     );
   }

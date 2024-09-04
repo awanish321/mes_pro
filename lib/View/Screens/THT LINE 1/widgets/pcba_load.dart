@@ -15,7 +15,10 @@ class _PCBALoadScreenState extends State<PCBALoadScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.teal,
-        title: const Text("PCBA LOAD"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("PCBA LOAD", style: TextStyle(color: Colors.black),),
       ),
     );
   }

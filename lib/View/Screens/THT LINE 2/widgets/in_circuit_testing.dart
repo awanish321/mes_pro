@@ -15,7 +15,10 @@ class _InCircuitTestingScreenState extends State<InCircuitTestingScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.amber,
-        title: const Text("In Circuit Testing"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("In Circuit Testing", style: TextStyle(color: Colors.black),),
       ),
     );
   }

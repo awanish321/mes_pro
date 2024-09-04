@@ -14,7 +14,10 @@ class _NewOrderWidgetState extends State<NewOrderWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.greenAccent,
-        title: const Text("New Order"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("New Order", style: TextStyle(color: Colors.black),),
       ),
     );
   }

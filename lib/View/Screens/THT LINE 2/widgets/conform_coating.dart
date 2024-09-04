@@ -15,7 +15,10 @@ class _ConformCoatingScreenState extends State<ConformCoatingScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.amber,
-        title: const Text("Conform Coating"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Conform Coating", style: TextStyle(color: Colors.black),),
       ),
     );
   }

@@ -14,7 +14,10 @@ class _ChemicalWeldingState extends State<ChemicalWelding> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Chemical Welding"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Chemical Welding", style: TextStyle(color: Colors.black),),
       ),
     );
   }

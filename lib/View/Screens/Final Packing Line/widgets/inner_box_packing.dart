@@ -14,7 +14,10 @@ class _InnerBoxPackingState extends State<InnerBoxPacking> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Inner Box Packing"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+        title: const Text("Inner Box Packing", style: TextStyle(color: Colors.black),),
       ),
     );
   }

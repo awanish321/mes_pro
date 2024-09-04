@@ -14,7 +14,10 @@ class _OuterBoxPackingState extends State<OuterBoxPacking> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.cyan,
-        title: const Text("Outer Box Packing"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Outer Box Packing", style: TextStyle(color: Colors.black),),
       ),
     );
   }

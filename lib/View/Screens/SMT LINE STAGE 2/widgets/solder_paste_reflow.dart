@@ -14,7 +14,10 @@ class _SolderPasteReflowScreenState extends State<SolderPasteReflowScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.purple,
-        title: const Text('Solder Paste Reflow'),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text('Solder Paste Reflow', style: TextStyle(color: Colors.black),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

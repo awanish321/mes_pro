@@ -14,7 +14,10 @@ class _OrderInProductionWidgetState extends State<OrderInProductionWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blueGrey,
-        title: const Text("Order In Production"),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
+        title: const Text("Order In Production", style: TextStyle(color: Colors.black),),
       ),
     );
   }
