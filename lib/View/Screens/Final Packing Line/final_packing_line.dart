@@ -160,7 +160,7 @@ class _FinalPackingLineScreenState extends State<FinalPackingLineScreen> {
       case "Meter Visual Inspection":
         return const MeterVisualInspection();
       case "Laser Marking":
-        return const LaserMarking();
+        return const LaserMarking(tableValues: {},);
       case "KIOSK":
         return const KIOSK();
       case "Asset Prepack":

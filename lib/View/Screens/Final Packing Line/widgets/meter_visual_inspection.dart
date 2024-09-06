@@ -22,6 +22,17 @@ class _MeterVisualInspectionState extends State<MeterVisualInspection> {
         ),
         title: const Text("Meter Visual Inspection", style: TextStyle(color: Colors.black),),
       ),
+      body: Center(
+        child:ElevatedButton(
+          onPressed: () => Navigator.pop(context),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            backgroundColor: Colors.green.shade300,
+            side: const BorderSide(color: Colors.green, width: 3)
+          ),
+          child: const Text("Go", style: TextStyle(color: Colors.black),),
+        ),
+      ),
     );
   }
 }

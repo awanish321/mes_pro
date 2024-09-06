@@ -8,6 +8,9 @@ import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_markin
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_sealing.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
+import 'package:mes_pro/View/Screens/Repairs/widgets/belly_meter.dart';
+import 'package:mes_pro/View/Screens/Repairs/widgets/r10_nic.dart';
+import 'package:mes_pro/View/Screens/Repairs/widgets/r26_main_board.dart';
 
 class Repairs extends StatefulWidget {
   const Repairs({super.key});
@@ -21,26 +24,12 @@ class _RepairsState extends State<Repairs> {
     "Belly Meter",
     "R10 NIC",
     "R26 Main Board",
-    "Asset Prepack",
-    "Chemical Welding",
-    "ETBC Fixing",
-    "Meter Sealing",
-    "Inner Box Packing",
-    "Outer Box Packing",
-    "Finished Goods To Store"
   ];
 
   final List<String> images = [
     "assets/icons/electric-meter.png",
-    "assets/laser.png",
-    "assets/icons/kiosk.png",
-    "assets/icons/digital-asset-management.png",
-    "assets/icons/welding-equipment.png",
-    "assets/icons/tool.png",
-    "assets/icons/electric-meter.png",
-    "assets/icons/package.png",
-    "assets/icons/package.png",
-    "assets/icons/store.png",
+    "assets/repairs/computer-hardware.png",
+    "assets/repairs/main board.png",
   ];
 
   // Track hovered index
@@ -156,24 +145,12 @@ class _RepairsState extends State<Repairs> {
 
   Widget getPageForItem(String item) {
     switch (item) {
-      case "Meter Visual Inspection":
-        return const MeterVisualInspection();
-      case "Laser Marking":
-        return const LaserMarking();
-      case "KIOSK":
-        return const KIOSK();
-      case "Asset Prepack":
-        return const AssetPrepack();
-      case "Chemical Welding":
-        return const ChemicalWelding();
-      case "ETBC Fixing":
-        return const ETBCFixing();
-      case "Meter Sealing":
-        return const MeterSealing();
-      case "Inner Box Packing":
-        return const InnerBoxPacking();
-      case "Outer Box Packing":
-        return const OuterBoxPacking();
+      case "Belly Meter":
+        return const BellyMeter();
+      case "R10 NIC":
+        return const R10Nic();
+      case "R26 Main Board":
+        return const R26MainBoard();
       default:
         return const Repairs();
     }

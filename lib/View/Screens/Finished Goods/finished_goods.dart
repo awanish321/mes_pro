@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/asset_prepack.dart';
 import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/chemical_welding.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/etbc_fixing.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/finished_goods_to_store.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/inner_box_packing.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/kiosk.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_sealing.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/meter_visual_inspection.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/outer_box_packing.dart';
+import 'package:mes_pro/View/Screens/Finished%20Goods/widgets/finished_goods_overview.dart';
+import 'package:mes_pro/View/Screens/Finished%20Goods/widgets/finished_goods_reject.dart';
+import 'package:mes_pro/View/Screens/Finished%20Goods/widgets/finished_goods_store1.dart';
+import 'package:mes_pro/View/Screens/Finished%20Goods/widgets/finished_goods_store2.dart';
+import 'package:mes_pro/View/Screens/Finished%20Goods/widgets/finished_goods_to_floor.dart';
 
 class FinishedGoods extends StatefulWidget {
   const FinishedGoods({super.key});
@@ -19,29 +15,19 @@ class FinishedGoods extends StatefulWidget {
 
 class _FinishedGoodsState extends State<FinishedGoods> {
   final List<String> items = [
-    "Meter Visual Inspection",
-    "Laser Marking",
-    "KIOSK",
-    "Asset Prepack",
-    "Chemical Welding",
-    "ETBC Fixing",
-    "Meter Sealing",
-    "Inner Box Packing",
-    "Outer Box Packing",
-    "Finished Goods To Store"
+    "Finished Goods Store-1",
+    "Finished Goods Store-2",
+    "Finished Goods on Floor",
+    "Finished Goods Reject",
+    "Finished Goods Overview",
   ];
 
   final List<String> images = [
-    "assets/icons/electric-meter.png",
-    "assets/laser.png",
-    "assets/icons/kiosk.png",
-    "assets/icons/digital-asset-management.png",
-    "assets/icons/welding-equipment.png",
-    "assets/icons/tool.png",
-    "assets/icons/electric-meter.png",
-    "assets/icons/package.png",
-    "assets/icons/package.png",
-    "assets/icons/store.png",
+    "assets/goods/store.png",
+    "assets/goods/store.png",
+    "assets/goods/warehouse floor.png",
+    "assets/goods/reject.png",
+    "assets/goods/overview.png",
   ];
 
   // Track hovered index
@@ -157,26 +143,16 @@ class _FinishedGoodsState extends State<FinishedGoods> {
 
   Widget getPageForItem(String item) {
     switch (item) {
-      case "Meter Visual Inspection":
-        return const MeterVisualInspection();
-      case "Laser Marking":
-        return const LaserMarking();
-      case "KIOSK":
-        return const KIOSK();
-      case "Asset Prepack":
-        return const AssetPrepack();
-      case "Chemical Welding":
-        return const ChemicalWelding();
-      case "ETBC Fixing":
-        return const ETBCFixing();
-      case "Meter Sealing":
-        return const MeterSealing();
-      case "Inner Box Packing":
-        return const InnerBoxPacking();
-      case "Outer Box Packing":
-        return const OuterBoxPacking();
-      case "Finished Goods To Store":
-        return const FinishedGoodsToStore();
+      case "Finished Goods Store-1":
+        return const FinishedGoodsStore1();
+      case "Finished Goods Store-2":
+        return const FinishedGoodsStore2();
+      case "Finished Goods on Floor":
+        return const FinishedGoodsToFloor();
+      case "Finished Goods Reject":
+        return const FinishedGoodsReject();
+      case "Finished Goods Overview":
+        return const FinishedGoodsOverview();
       default:
         return const FinishedGoods();
     }

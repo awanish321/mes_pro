@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/relay_assembly.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/de_panel_gam330_at_and_pcb_unload.dart';
 
-import 'laser_marking.dart';
 
-class PcbLoadScreen extends StatefulWidget {
-  const PcbLoadScreen({super.key});
+class ConformCoatingMYC50 extends StatefulWidget {
+  const ConformCoatingMYC50({super.key});
 
   @override
-  State<PcbLoadScreen> createState() => _PcbLoadScreenState();
+  State<ConformCoatingMYC50> createState() => _ConformCoatingMYC50State();
 }
 
-class _PcbLoadScreenState extends State<PcbLoadScreen> {
-  // Map to store the table values
+class _ConformCoatingMYC50State extends State<ConformCoatingMYC50> {
   final Map<String, String> tableValues = {
     "Total PCB Load": "100",
     "Process Complete": "48",
     "In Process": "52",
-    "Job ID": "105",
-    "Attendant ID": "12 TO 14 Digit",
     "Time Cycle": "25 Sec",
   };
 
@@ -27,11 +22,11 @@ class _PcbLoadScreenState extends State<PcbLoadScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.teal,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
-        title: const Text('PCB Load', style: TextStyle(color: Colors.black),),
+        title: const Text('Conform Coating (MYC50)', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [
@@ -58,11 +53,10 @@ class _PcbLoadScreenState extends State<PcbLoadScreen> {
             padding: const EdgeInsets.all(16),
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to the next screen and pass the tableValues map
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const LaserMarkingScreen(),
+                    builder: (context) => const DePanelGAM330AtAndPCBUnload(),
                   ),
                 );
               },
@@ -108,4 +102,5 @@ class _TableCellContent extends StatelessWidget {
     );
   }
 }
+
 

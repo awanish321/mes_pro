@@ -19,6 +19,17 @@ class _NewOrdersWidgetsState extends State<NewOrdersWidgets> {
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
         title: const Text("New Orders", style: TextStyle(color: Colors.black),),
       ),
+      
+      body: Center(
+        child: ElevatedButton(
+            onPressed: ()=> Navigator.pop(context),
+            style: ElevatedButton.styleFrom(
+              elevation: 0,
+              backgroundColor: Colors.green.shade300,
+              side: const BorderSide(color: Colors.green, width: 3,),
+            ),
+            child: const Text("Go", style: TextStyle(color: Colors.black),)),
+      ),
     );
   }
 }

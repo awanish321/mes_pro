@@ -19,6 +19,17 @@ class _OrderInProductionWidgetState extends State<OrderInProductionWidget> {
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
         title: const Text("Order In Production", style: TextStyle(color: Colors.black),),
       ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => Navigator.pop(context),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            side: const BorderSide(color: Colors.green, width: 3),
+            backgroundColor: Colors.green.shade300
+          ),
+          child: const Text("Go", style: TextStyle(color: Colors.black),),
+        ),
+      ),
     );
   }
 }

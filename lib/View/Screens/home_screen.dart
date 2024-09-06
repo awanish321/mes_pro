@@ -158,6 +158,7 @@
 import 'package:flutter/material.dart';
 import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/final_assembly_line.dart';
 import 'package:mes_pro/View/Screens/Finished%20Goods/finished_goods.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/human_resource.dart';
 import 'package:mes_pro/View/Screens/Purchase%20Order/purchase_order.dart';
 import 'package:mes_pro/View/Screens/Repairs/repairs.dart';
 import 'package:mes_pro/View/Screens/Sales%20Order/sales_order.dart';
@@ -195,7 +196,8 @@ class _HomeScreenState extends State<HomeScreen> {
     "Finished Goods",
     "WIP",
     "Repairs",
-    "Scrap"
+    "Scrap",
+    "Human Resource"
   ];
 
   final List<String> images = [
@@ -213,7 +215,8 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/icons/finished-goods.png",
     "assets/icons/work-in-progress.png",
     "assets/icons/technician.png",
-    "assets/icons/waste.png"
+    "assets/icons/waste.png",
+    "assets/icons/teamwork.png"
   ];
 
   final List<Color> colors = [
@@ -231,8 +234,8 @@ class _HomeScreenState extends State<HomeScreen> {
     Colors.indigoAccent,
     Colors.brown.shade500,
     Colors.lime,
-    Colors.green
-
+    Colors.green,
+    Colors.teal
   ];
 
   int? hoveredIndex;
@@ -252,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text("MES PRO", style: TextStyle(color: Colors.black)),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Center(
           child: GridView.builder(
             physics: const BouncingScrollPhysics(),
@@ -369,6 +372,8 @@ class _HomeScreenState extends State<HomeScreen> {
         return const Repairs();
       case "Scrap":
         return const Scrap();
+      case "Human Resource":
+        return const HumanResource();
       default:
         return const HomeScreen();
     }

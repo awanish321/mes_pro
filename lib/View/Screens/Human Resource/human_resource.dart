@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:barcode_widget/barcode_widget.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/2d_aoi.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/pcb_unload.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/smd_pick_place.dart';
-import 'package:mes_pro/View/Screens/SMT%20LINE%20STAGE%202/widgets/solder_paste_reflow.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/3d_aoi_mv6.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/conform_coating_myc50.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/de_panel_gam330_at_and_pcb_unload.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/in_circuit_testing_condor.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/pcba_cleaning_t20.dart';
 import '../Services/bar_code_service.dart';
-import '../Services/bar_code_service_smt_line_stage2.dart';
 
-class SMTLineStage2Screen extends StatefulWidget {
-  const SMTLineStage2Screen({super.key});
+class HumanResource extends StatefulWidget {
+  const HumanResource({super.key});
 
   @override
-  State<SMTLineStage2Screen> createState() => _SMTLineStage2ScreenState();
+  State<HumanResource> createState() => _HumanResourceState();
 }
 
-class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
+class _HumanResourceState extends State<HumanResource> {
   final List<String> items = [
-    "SMD Pick & Place",
-    "Solder Paste Reflow",
-    "2D AOI",
-    "PCB Unload",
+    "PCBA Cleaning (T-20)",
+    "3D AOI MV6",
+    "In circuit Testing (Condor)",
+    "Conform Coating (MYC50)",
+    "De-Panel GAM330 AT & PCB Unload"
   ];
 
   final List<String> images = [
-    "assets/chip.png",
-    "assets/soldering.png",
-    "assets/file.png",
     "assets/pcb-board.png",
+    "assets/file.png",
+    "assets/circuit.png",
+    "assets/spray-gun.png",
+    "assets/pcb-board.png"
   ];
 
   Map<String, String> barcodeData = {};
@@ -95,14 +97,14 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.teal,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back, color: Colors.black),
         ),
-        title: const Text("SMT Line Stage - 2", style: TextStyle(color: Colors.black)),
+        title: const Text("Human Resource", style: TextStyle(color: Colors.black)),
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -114,7 +116,7 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: isDesktop ? 6 : 4,
+                  crossAxisCount: isDesktop ? 6 : 3,
                   crossAxisSpacing: 8.0,
                   mainAxisSpacing: 8.0,
                   childAspectRatio: 1,
@@ -145,7 +147,7 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
                         duration: const Duration(milliseconds: 200),
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
-                          color: Colors.purple,
+                          color: Colors.teal,
                           borderRadius: BorderRadius.circular(12),
                           boxShadow: hoveredIndex == index
                               ? [
@@ -172,12 +174,10 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Expanded(
-                                  child: Text(
-                                    items[index],
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(),
-                                  ),
+                                Text(
+                                  items[index],
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(),
                                 ),
                               ],
                             ),
@@ -257,15 +257,15 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
   Widget buildTable() {
     return Table(
       border: TableBorder.all(
-        color: Colors.grey.withOpacity(0.5),
-        width: 2,
-        borderRadius: BorderRadius.circular(5)
+          color: Colors.grey.withOpacity(0.5),
+          width: 2,
+          borderRadius: BorderRadius.circular(5)
       ),
       children: [
         TableRow(
           decoration: BoxDecoration(
-              color: Colors.purple,
-            borderRadius: BorderRadius.circular(5)
+              color: Colors.orange,
+              borderRadius: BorderRadius.circular(5)
           ),
           children: const [
             TableCell(child: Center(child: Padding(
@@ -290,24 +290,27 @@ class _SMTLineStage2ScreenState extends State<SMTLineStage2Screen> {
               TableCell(child: Padding(padding: const EdgeInsets.all(8.0), child: Text(entry.value))),
             ],
           );
-        }),
+        }).toList(),
       ],
     );
   }
+
 }
 
 
-  Widget getPageForItem(String item) {
-    switch (item) {
-      case "SMD Pick & Place":
-        return const SmdPickPlaceScreen();
-      case "Solder Paste Reflow":
-        return const SolderPasteReflowScreen();
-      case "2D AOI":
-        return const AoiScreen();
-      case "PCB Unload":
-        return const PcbUnloadScreen();
-      default:
-        return const SMTLineStage2Screen();
-    }
+Widget getPageForItem(String item) {
+  switch (item) {
+    case "PCBA Cleaning (T-20)":
+      return const PCBACleaningT20();
+    case "3D AOI MV6":
+      return const DAOIMV6();
+    case "In circuit Testing (Condor)":
+      return const InCircuitTesting();
+    case "Conform Coating (MYC50)":
+      return const ConformCoatingMYC50();
+    case "De-Panel GAM330 AT & PCB Unload":
+      return const DePanelGAM330AtAndPCBUnload();
+    default:
+      return const HumanResource();
   }
+}

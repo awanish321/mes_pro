@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/relay_assembly.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/human_resource.dart';
+import 'package:mes_pro/View/Screens/THT%20LINE%201/widgets/radial_insertion.dart';
 
-import 'laser_marking.dart';
 
-class PcbLoadScreen extends StatefulWidget {
-  const PcbLoadScreen({super.key});
+class DePanelGAM330AtAndPCBUnload extends StatefulWidget {
+  const DePanelGAM330AtAndPCBUnload({super.key});
 
   @override
-  State<PcbLoadScreen> createState() => _PcbLoadScreenState();
+  State<DePanelGAM330AtAndPCBUnload> createState() => _DePanelGAM330AtAndPCBUnloadState();
 }
 
-class _PcbLoadScreenState extends State<PcbLoadScreen> {
-  // Map to store the table values
+class _DePanelGAM330AtAndPCBUnloadState extends State<DePanelGAM330AtAndPCBUnload> {
   final Map<String, String> tableValues = {
     "Total PCB Load": "100",
     "Process Complete": "48",
     "In Process": "52",
-    "Job ID": "105",
-    "Attendant ID": "12 TO 14 Digit",
     "Time Cycle": "25 Sec",
   };
 
@@ -27,14 +23,15 @@ class _PcbLoadScreenState extends State<PcbLoadScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.teal,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
-        title: const Text('PCB Load', style: TextStyle(color: Colors.black),),
+        title: const Text('De-Panel GAM330 AT & PCB Unload', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [
+          // SelectableText(data)
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Table(
@@ -58,11 +55,10 @@ class _PcbLoadScreenState extends State<PcbLoadScreen> {
             padding: const EdgeInsets.all(16),
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to the next screen and pass the tableValues map
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const LaserMarkingScreen(),
+                    builder: (context) => const HumanResource(),
                   ),
                 );
               },
@@ -108,4 +104,5 @@ class _TableCellContent extends StatelessWidget {
     );
   }
 }
+
 

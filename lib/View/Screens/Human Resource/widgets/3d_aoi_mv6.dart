@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mes_pro/View/Screens/Final%20Assembly%20Line/widgets/relay_assembly.dart';
-import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
+import 'package:mes_pro/View/Screens/Human%20Resource/widgets/in_circuit_testing_condor.dart';
+import 'package:mes_pro/View/Screens/THT%20LINE%201/widgets/radial_insertion.dart';
 
-import 'laser_marking.dart';
 
-class PcbLoadScreen extends StatefulWidget {
-  const PcbLoadScreen({super.key});
+class DAOIMV6 extends StatefulWidget {
+  const DAOIMV6({super.key});
 
   @override
-  State<PcbLoadScreen> createState() => _PcbLoadScreenState();
+  State<DAOIMV6> createState() => _DAOIMV6State();
 }
 
-class _PcbLoadScreenState extends State<PcbLoadScreen> {
-  // Map to store the table values
+class _DAOIMV6State extends State<DAOIMV6> {
   final Map<String, String> tableValues = {
     "Total PCB Load": "100",
     "Process Complete": "48",
     "In Process": "52",
-    "Job ID": "105",
-    "Attendant ID": "12 TO 14 Digit",
     "Time Cycle": "25 Sec",
   };
 
@@ -27,11 +23,11 @@ class _PcbLoadScreenState extends State<PcbLoadScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.teal,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
-        title: const Text('PCB Load', style: TextStyle(color: Colors.black),),
+        title: const Text('3D AOI MV6', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         children: [
@@ -58,11 +54,10 @@ class _PcbLoadScreenState extends State<PcbLoadScreen> {
             padding: const EdgeInsets.all(16),
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to the next screen and pass the tableValues map
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const LaserMarkingScreen(),
+                    builder: (context) => const InCircuitTesting(),
                   ),
                 );
               },
@@ -108,4 +103,5 @@ class _TableCellContent extends StatelessWidget {
     );
   }
 }
+
 
