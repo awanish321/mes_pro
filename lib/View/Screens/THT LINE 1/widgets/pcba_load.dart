@@ -23,7 +23,7 @@ class _PCBALoadScreenState extends State<PCBALoadScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.teal.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
@@ -66,7 +66,7 @@ class _PCBALoadScreenState extends State<PCBALoadScreen> {
                 backgroundColor: Colors.lightGreen.shade300,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
-                  side: const BorderSide(color: Colors.green, width: 3),
+                  side: BorderSide(color: Colors.green.shade900, width: 3),
                 ),
               ),
               child: const Text(

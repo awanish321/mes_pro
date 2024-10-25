@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mes_pro/View/Screens/Final%20Packing%20Line/widgets/laser_marking.dart';
 
 
 class MeterVisualInspection extends StatefulWidget {
@@ -14,7 +15,7 @@ class _MeterVisualInspectionState extends State<MeterVisualInspection> {
     return  Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.cyan.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         },
@@ -24,11 +25,11 @@ class _MeterVisualInspectionState extends State<MeterVisualInspection> {
       ),
       body: Center(
         child:ElevatedButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const LaserMarking(tableValues: {}))),
           style: ElevatedButton.styleFrom(
             elevation: 0,
             backgroundColor: Colors.green.shade300,
-            side: const BorderSide(color: Colors.green, width: 3)
+            side: BorderSide(color: Colors.green.shade900, width: 3)
           ),
           child: const Text("Go", style: TextStyle(color: Colors.black),),
         ),

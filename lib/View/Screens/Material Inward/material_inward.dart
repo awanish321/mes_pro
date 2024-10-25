@@ -14,7 +14,7 @@ class _MaterialInwardScreenState extends State<MaterialInwardScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),

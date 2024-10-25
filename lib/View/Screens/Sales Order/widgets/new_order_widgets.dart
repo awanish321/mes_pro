@@ -13,7 +13,7 @@ class _NewOrdersWidgetsState extends State<NewOrdersWidgets> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,),),
@@ -26,7 +26,7 @@ class _NewOrdersWidgetsState extends State<NewOrdersWidgets> {
             style: ElevatedButton.styleFrom(
               elevation: 0,
               backgroundColor: Colors.green.shade300,
-              side: const BorderSide(color: Colors.green, width: 3,),
+              side: BorderSide(color: Colors.green.shade900, width: 3,),
             ),
             child: const Text("Go", style: TextStyle(color: Colors.black),)),
       ),

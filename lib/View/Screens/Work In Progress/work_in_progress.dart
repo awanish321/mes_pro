@@ -16,7 +16,7 @@ class _WIPState extends State<WIP> {
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
-        backgroundColor: Colors.brown.shade500,
+        backgroundColor: Colors.brown.shade900,
         title: const Text("Work In Progress", style: TextStyle(color: Colors.black),),
       ),
     );

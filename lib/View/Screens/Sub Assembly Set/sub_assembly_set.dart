@@ -158,12 +158,12 @@ class _SubAssemblySetScreenState extends State<SubAssemblySetScreen> {
             borderRadius: BorderRadius.circular(10)
         ),
         onPressed: addNewFiles,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue.shade900,
         child: const Icon(Icons.add, color: Colors.black,),
       ),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
@@ -196,7 +196,7 @@ class _SubAssemblySetScreenState extends State<SubAssemblySetScreen> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.blue.shade900,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Padding(

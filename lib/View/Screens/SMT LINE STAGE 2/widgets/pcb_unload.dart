@@ -118,7 +118,7 @@ class _PcbUnloadScreenState extends State<PcbUnloadScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.purple.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
@@ -162,7 +162,7 @@ class _PcbUnloadScreenState extends State<PcbUnloadScreen> {
                 backgroundColor: Colors.lightGreen.shade300,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
-                  side: const BorderSide(color: Colors.green, width: 3),
+                  side: BorderSide(color: Colors.green.shade900, width: 3),
                 ),
               ),
               child: const Text(

@@ -13,7 +13,7 @@ class _BellyMeterState extends State<BellyMeter> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.lime,
+        backgroundColor: Colors.lime.shade900,
         leading: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back, color: Colors.black,),),
         title: const Text("Belly Meter", style: TextStyle(color: Colors.black),),
       ),

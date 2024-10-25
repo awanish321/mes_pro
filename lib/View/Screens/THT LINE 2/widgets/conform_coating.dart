@@ -14,7 +14,7 @@ class _ConformCoatingScreenState extends State<ConformCoatingScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.amber.shade900,
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back, color: Colors.black,)),
